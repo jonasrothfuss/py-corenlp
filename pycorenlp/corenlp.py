@@ -33,7 +33,10 @@ class StanfordCoreNLP:
             try:
                 output = json.loads(output, encoding='utf-8', strict=True)
             except:
-                pass
+                try:
+                    output = json.loads(output, strict=False)  
+                except:
+                    pass
         return output
 
     def tokensregex(self, text, pattern, filter):
